@@ -1,0 +1,3 @@
+
+CREATE DATABASE bs_dev;
+CREATE DATABASE bs_test;
