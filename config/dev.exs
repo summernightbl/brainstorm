@@ -2,7 +2,7 @@
 use Mix.Config
  
  # Configure your database
- config :quackbox, Quackbox.Repo,
+ config :brainstorm, Brainstorm.Repo,
 -  username: "postgres",
 -  password: "postgres",
 -  database: "quackbox_dev",
