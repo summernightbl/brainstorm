@@ -1,19 +1,14 @@
-@@ -2,10 +2,11 @@ 
 use Mix.Config
- 
- # Configure your database
- config :brainstorm, Brainstorm.Repo,
--  username: "postgres",
--  password: "postgres",
--  database: "quackbox_dev",
--  hostname: "localhost",
-+  adapter: Ecto.Adapters.Postgres,
-+  username: System.get_env("POSTGRES_USER"),
-+  password: System.get_env("POSTGRES_PASSWORD"),
-+  database: System.get_env("POSTGRES_DB"),
-+  hostname: System.get_env("POSTGRES_HOST"),
-   show_sensitive_data_on_connection_error: true,
-   pool_size: 10
+
+# Configure your database
+config :brainstorm, Brainstorm.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: System.get_env("POSTGRES_USER"),
+  password: System.get_env("POSTGRES_PASSWORD"),
+  database: System.get_env("POSTGRES_DB"),
+  hostname: System.get_env("POSTGRES_HOST"),
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -21,7 +16,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :brainstorm, BrainstormWeb.Endpoint,
+config :quackbox, QuackboxWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -31,6 +26,7 @@ config :brainstorm, BrainstormWeb.Endpoint,
       "node_modules/webpack/bin/webpack.js",
       "--mode",
       "development",
+      "--colors",
       "--watch-stdin",
       cd: Path.expand("../assets", __DIR__)
     ]
@@ -61,13 +57,13 @@ config :brainstorm, BrainstormWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :brainstorm, BrainstormWeb.Endpoint,
+config :quackbox, QuackboxWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/brainstorm_web/{live,views}/.*(ex)$",
-      ~r"lib/brainstorm_web/templates/.*(eex)$"
+      ~r"lib/quackbox_web/{live,views}/.*(ex)$",
+      ~r"lib/quackbox_web/templates/.*(eex)$"
     ]
   ]
 
