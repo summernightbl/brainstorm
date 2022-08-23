@@ -16,7 +16,7 @@ config :brainstorm, Brainstorm.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :quackbox, QuackboxWeb.Endpoint,
+config :brainstorm, BrainstormWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -57,13 +57,13 @@ config :quackbox, QuackboxWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :quackbox, QuackboxWeb.Endpoint,
+config :brainstorm, BrainstormWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/quackbox_web/{live,views}/.*(ex)$",
-      ~r"lib/quackbox_web/templates/.*(eex)$"
+      ~r"lib/brainstorm_web/{live,views}/.*(ex)$",
+      ~r"lib/brainstorm_web/templates/.*(eex)$"
     ]
   ]
 
